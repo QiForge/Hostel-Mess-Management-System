@@ -39,21 +39,22 @@ This project focuses on clean design, teamwork, and the fundamentals of **HTML**
 (```
 Hostel-Mess-Management/
 │
-├── index.html # Home Page
-├── hostel.html # Hostel Info Page
-├── mess.html # Mess Menu Page
-├── register.html # Registration Form
-├── about.html # Contact / About Page
+├── index.html           # Home Page
+├── hostel.html          # Hostel Info Page
+├── mess.html            # Mess Menu Page
+├── register.html        # Registration Form
+├── about.html           # Contact / About Page
 │
 ├── css/
-│ └── style.css # Main styling file
-| └── mess.css # Mess styling file
+│   ├── style.css        # Main styling file
+│   └── mess.css         # Mess styling file
 │
 ├── js/
-│ └── main.js # Optional interactivity (validation, tabs, etc.)
+│   └── main.js          # Optional interactivity (validation, tabs, etc.)
 │
-├── images/ # Image assets
+├── images/              # Image assets
 │
-├── team.md # Team info & task allocation
-└── Readme.md # Project documentation
+├── team.md              # Team info & task allocation
+└── Readme.md            # Project documentation
+
 ```)
