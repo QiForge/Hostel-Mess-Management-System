@@ -1,6 +1,6 @@
 # 🏠 Hostel & Mess Management System
 
-### 👨‍💻 A Mini Project by *Friends & Peers* (CSE B.Tech)
+### 👨‍💻 A Mini Project by *Team Falcoon* of *QiForge* (CSE B.Tech)
 
 ---
 
