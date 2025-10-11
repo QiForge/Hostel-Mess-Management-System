@@ -32,7 +32,7 @@
 
 ## ⚙️ Collaboration Notes
 
-- Repository hosted under the **Friends & Peers** GitHub organization  
+- Repository hosted under the **QiForge** GitHub organization  
 - Each member works on their **own branch** named after them (`yogesh-dev`, `saurabh-html`, `naval-forms`, `ratan-design`)  
 - Yogesh reviews and merges branches into `main`  
 - Team communicates via group chat and GitHub Issues  
