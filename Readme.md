@@ -36,6 +36,7 @@ This project focuses on clean design, teamwork, and the fundamentals of **HTML**
 ---
 
 ## 📂 Project Structure
+(```
 Hostel-Mess-Management/
 │
 ├── index.html # Home Page
@@ -55,3 +56,4 @@ Hostel-Mess-Management/
 │
 ├── team.md # Team info & task allocation
 └── Readme.md # Project documentation
+```)
