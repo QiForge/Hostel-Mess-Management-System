@@ -64,6 +64,10 @@ hostel-mess-management/
 │   │   └── bootstrap.css
 │   └── images/
 │
+├── fonts/
+│   ├── Roboto-momo
+│   └── Poppins
+│
 ├── docs/
 │   ├── project-report.pdf
 │   ├── RWADME.md
