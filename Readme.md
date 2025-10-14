@@ -38,28 +38,37 @@ This project focuses on clean design, teamwork, and the fundamentals of **HTML**
 ## 📂 Project Structure
 <pre>
 
-Hostel-Mess-Management/
+hostel-mess-management/
 │
-├── html/
-│   ├── index.html       # Home Page
-│   ├── mess.html        # Mess Menu Page
-│   ├── register.html    # Registration Form
-│   └── about.html       # Contact / About Page
-│    
+├── index.html
+├── login.html
+├── user/
+│   ├── dashboard.html
+│   ├── mess-menu.html
+│   └── complaints.html
+├── admin/
+│   ├── dashboard.html
+│   ├── students.html
+│   ├── mess-menu.html
+│   └── reports.html
 │
-├── css/
-│   ├── style.css        # Main styling file
-│   └── mess.css         # Mess styling file
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── user.js
+│   │   └── admin.js
+│   ├── bootstrap/
+│   │   ├── bootstrap.bundle.js
+│   │   └── bootstrap.css
+│   └── images/
 │
-├── js/
-│   ├── function.js      # dedicated features file
-│   └── main.js          # Optional interactivity (validation, tabs, etc.)
+├── docsstydents.html/
 │
-├── images/              # Image assets
-│
-├── team.md              # Team info & task allocation
-├── features.md          # planned and completed features list
-└── Readme.md            # Project documentation
+└── data/
+    └── mock-data.json
+
 
 </pre>
 
