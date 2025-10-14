@@ -54,6 +54,7 @@ hostel-mess-management/
 │
 ├── assets/
 │   ├── css/
+│   │   ├── admin.css
 │   │   └── style.css
 │   ├── js/
 │   │   ├── main.js
