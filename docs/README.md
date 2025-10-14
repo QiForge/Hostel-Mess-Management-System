@@ -64,7 +64,12 @@ hostel-mess-management/
 │   │   └── bootstrap.css
 │   └── images/
 │
-├── docsstydents.html/
+├── docs/
+│   ├── project-report.pdf
+│   ├── RWADME.md
+│   ├── features.md
+│   ├── LICENSE
+│   └── team.md
 │
 └── data/
     └── mock-data.json

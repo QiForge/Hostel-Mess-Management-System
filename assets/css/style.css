@@ -1,0 +1,11 @@
+:root {
+  --primary: #6C63FF;
+  --secondary: #2ECC71;
+  --accent: #FF69B4;
+  --warning: #F39C12;
+  --grey-light: #F2F2F2;
+  --grey-dark: #555;
+  --text-primary: #222222;  
+  --text-secondary: #666666; 
+  --text-light: #FFFFFF;
+}
