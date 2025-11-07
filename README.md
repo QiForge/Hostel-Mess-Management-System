@@ -47,44 +47,30 @@ This project focuses on clean design, teamwork, and the fundamentals of **HTML**
 hostel-mess-management/
 │
 ├── index.html
+├── about.html
+├── mess.html
 ├── login.html
-├── user/
-│   ├── dashboard.html
-│   ├── mess-menu.html
-│   └── complaints.html
-├── admin/
-│   ├── dashboard.html
-│   ├── students.html
-│   ├── mess-menu.html
-│   └── reports.html
+├── dashboard.html
+├── student.html
+├── complaints.html
 │
-├── assets/
-│   ├── css/
-│   │   ├── admin.css
-│   │   └── style.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── user.js
-│   │   └── admin.js
-│   ├── bootstrap/
-│   │   ├── bootstrap.bundle.js
-│   │   └── bootstrap.css
-│   └── images/
+├── css/
+│   ├── style.css
+│   ├── navbar.css
+│   ├── dashboard.css
 │
-├── fonts/
-│   ├── Roboto-momo
-│   └── Poppins
+├── js/
+│   ├── main.js
+│   ├── login.js
+│   ├── mess.js
+│   ├── hostel.js
+│   └── complaints.js
 │
-├── docs/
-│   ├── project-report.pdf
-│   ├── RWADME.md
-│   ├── features.md
-│   ├── LICENSE
-│   └── team.md
-│
-└── data/
-    └── mock-data.json
-
+└── assets/
+    ├── logo.png
+    ├── hostel.jpg
+    ├── mess.jpg
+    └── icons/
 
 </pre>
 
