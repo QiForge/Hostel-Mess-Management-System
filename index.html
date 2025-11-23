@@ -4,191 +4,285 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BBDIT Hostel & Mess</title>
+
+  <!-- Compiled Tailwind output -->
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Preload carousel images -->
+  <link rel="preload" as="image" href="assets/images/life1.jpg" />
+  <link rel="preload" as="image" href="assets/images/life2.jpg" />
+  <link rel="preload" as="image" href="assets/images/life3.jpg" />
+  <link rel="preload" as="image" href="assets/images/life4.jpg" />
+  <link rel="preload" as="image" href="assets/images/life5.jpg" />
 </head>
-<body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-brand">
-      <img src="assets/logo.png" alt="BBDIT Hostel Logo" class="logo">
-    </div>
+<body class="bg-[#f9fafc] text-[#2d2d2d] overflow-x-hidden font-[Poppins]">
 
-    <!-- Hamburger -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+<!-- NAVBAR -->
+<header class="w-full fixed top-0 z-50 bg-white shadow-md">
+  <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
 
-    <!-- Nav links -->
-    <nav class="nav-links" id="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">Facilities</a>
-      <a href="mess.html">Mess Menu</a>
-      <a href="login.html" class="btn-login">Login</a>
+    <!-- LOGO -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="assets/logo.png" class="h-11" alt="BBDIT Hostel Logo">
+    </a>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="hamburger" class="md:hidden flex flex-col justify-between w-7 h-5 cursor-pointer relative">
+      <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+      <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+      <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+    </button>
+
+
+    <!-- DESKTOP NAV -->
+    <nav id="nav-links"
+      class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+      <a href="index.html" class="text-[#007bff]">Home</a>
+      <a href="about.html" class="hover:text-[#007bff] duration-300">Facilities</a>
+      <a href="mess.html" class="hover:text-[#007bff] duration-300">Mess Menu</a>
+      <a href="login.html"
+        class="bg-[#007bff] text-white px-4 py-2 rounded-lg hover:bg-[#005dc1] duration-300">
+        Login
+      </a>
     </nav>
-  </header>
+  </div>
+
+  <!-- MOBILE SLIDING MENU -->
+  <nav id="mobile-menu"
+    class="fixed  top-0 right-[-80%] w-[75%] h-full bg-white shadow-xl p-6 pt-20
+           flex flex-col gap-6 opacity-0 transition-all duration-500 md:hidden">
+    
+    <a href="index.html" class="text-lg font-medium border-b border-gray-200 pb-2">Home</a>
+    <a href="about.html" class="text-lg font-medium border-b border-gray-200 pb-2">Facilities</a>
+    <a href="mess.html" class="text-lg font-medium border-b border-gray-200 pb-2">Mess Menu</a>
+
+    <a href="login.html"
+      class="bg-[#007bff] text-white text-center px-4 py-3 rounded-lg hover:bg-[#005dc1] duration-300">
+      Login
+    </a>
+  </nav>
+</header>
 
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Welcome to BBDIT Hostel</h1>
-        <p>Providing safe, comfortable and modern accommodation to BBDIT students — a place where learning meets living.</p>
-        <div class="hero-buttons">
-          <a href="about.html" class="btn primary">Explore Facilities</a>
-          <a href="mess.html" class="btn secondary">Join Us</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="img-canvas">
-          <img src="assets/images/hostel-bbdit.jpeg" alt="BBDIT Hostel Building" />
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="w-full bg-white px-[10%] pt-32 pb-20">
+  <div class="flex flex-wrap gap-12 items-center justify-between">
+    <div class="max-w-md">
+      <h1 class="text-4xl font-semibold text-[#002147] mb-4">
+        Welcome to BBDIT Hostel
+      </h1>
+      <p class="text-gray-600 text-[17px] mb-6">
+        Providing safe, comfortable and modern accommodation to BBDIT students —
+        a place where learning meets living.
+      </p>
 
-  <!-- WHY CHOOSE HOSTEL -->
-  <section class="why">
-    <h2>Why Choose Our Hostel</h2>
-
-    <div class="why-row">
-      <div class="why-text">
-        <h3>On-Campus Convenience</h3>
-        <p>Located within BBDIT’s main campus, our hostel ensures quick access to academic blocks, labs, and libraries.</p>
-      </div>
-      <div class="why-img">
-        <div class="img-canvas">
-          <img src="assets/convenience.jpg" alt="On-Campus Convenience" />
-        </div>
-      </div>
-    </div>
-
-    <div class="why-row reverse">
-      <div class="why-text">
-        <h3>Balanced Lifestyle</h3>
-        <p>Our calm and disciplined environment supports academic focus while promoting well-being, recreation, and social interaction.</p>
-      </div>
-      <div class="why-img">
-        <div class="img-canvas">
-          <img src="assets/lifestyle.jpg" alt="Balanced Lifestyle" />
-        </div>
+      <div class="flex gap-4">
+        <a href="about.html"
+          class="bg-[#007bff] text-white px-6 py-3 rounded-lg font-medium hover:-translate-y-[3px] hover:shadow-md duration-300">
+          Explore Facilities
+        </a>
+        <a href="mess.html"
+          class="bg-[#00b37a] text-white px-6 py-3 rounded-lg font-medium hover:-translate-y-[3px] hover:shadow-md duration-300">
+          Join Us
+        </a>
       </div>
     </div>
 
-    <div class="why-row">
-      <div class="why-text">
-        <h3>Hygienic Dining</h3>
-        <p>Fresh, nutritious meals are served daily in a clean, well-maintained mess hall with a rotating weekly menu.</p>
+    <div class="w-[500px] max-w-full h-80 md:h-[260px] rounded-xl overflow-hidden shadow hover:shadow-lg duration-300">
+      <img src="assets/images/hostel-bbdit.jpeg"
+           class="w-full h-full object-cover hover:scale-105 duration-500" />
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY -->
+<section class="bg-[#f6f9ff] px-[10%] py-20">
+  <h2 class="text-center text-3xl font-semibold text-[#002147] mb-16">
+    Why Choose Our Hostel
+  </h2>
+
+  <!-- Row 1 -->
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-10 mb-20">
+    <div class="max-w-md">
+      <h3 class="text-[#007bff] text-xl font-semibold mb-3">On-Campus Convenience</h3>
+      <p class="text-gray-700">Located within BBDIT’s main campus, our hostel ensures quick access to academic blocks, labs, and libraries.</p>
+    </div>
+    <div class="rounded-xl overflow-hidden shadow hover:shadow-lg duration-300 w-[500px] max-w-full h-80 md:h-[260px]">
+      <img src="assets/images/hosel-clg.jpeg" class="w-full h-full object-cover hover:scale-105 duration-500">
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="flex flex-col lg:flex-row-reverse items-center justify-between gap-10 mb-20">
+    <div class="max-w-md">
+      <h3 class="text-[#007bff] text-xl font-semibold mb-3">Balanced Lifestyle</h3>
+      <p class="text-gray-700">Our calm and disciplined environment supports academic focus while promoting well-being, recreation, and social interaction.</p>
+    </div>
+    <div class="rounded-xl overflow-hidden shadow hover:shadow-lg duration-300 w-[500px] max-w-full h-80 md:h-[260px]">
+      <img src="assets/images/gym.png" class="w-full h-full object-cover hover:scale-105 duration-500">
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+    <div class="max-w-md">
+      <h3 class="text-[#007bff] text-xl font-semibold mb-3">Hygienic Dining</h3>
+      <p class="text-gray-700">Fresh, nutritious meals are served daily in a clean, well-maintained mess hall with a rotating weekly menu.</p>
+    </div>
+    <div class="rounded-xl overflow-hidden shadow hover:shadow-lg duration-300 w-[500px] max-w-full h-80 md:h-[260px]">
+      <img src="assets/images/food.webp" class="w-full h-full object-cover hover:scale-105 duration-500">
+    </div>
+  </div>
+</section>
+
+
+<!-- FACILITIES -->
+<section class="bg-white px-[10%] py-20 text-center">
+  <h2 class="text-3xl font-semibold text-[#002147] mb-14">Facilities at a Glance</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+
+    <!-- Card -->
+    <template id="facility-template"></template>
+
+    <div class="bg-[#f8f9fa] rounded-xl shadow hover:shadow-lg duration-300 max-w-md mx-auto">
+      <div class="w-full h-[200px] rounded-t-xl overflow-hidden">
+        <img src="assets/images/room.jpeg"
+             class="w-full h-full object-cover hover:scale-105 duration-500">
       </div>
-      <div class="why-img">
-        <div class="img-canvas">
-          <img src="assets/mess-food.jpg" alt="Mess Dining" />
-        </div>
+      <div class="p-5 text-left">
+        <h3 class="text-[#007bff] font-semibold mb-2 text-lg">Comfortable Rooms</h3>
+        <p class="text-gray-700 text-[15px]">Well-furnished and ventilated rooms equipped with study desks and storage space.</p>
       </div>
     </div>
-  </section>
 
-  <!-- FACILITIES -->
-  <section class="facilities">
-    <h2>Facilities at a Glance</h2>
-    <div class="facility-grid">
-
-      <div class="facility-card">
-        <div class="img-canvas">
-          <img src="assets/room.jpg" alt="Hostel Room" />
-        </div>
-        <h3>Comfortable Rooms</h3>
-        <p>Well-furnished and ventilated rooms equipped with study desks and storage space.</p>
+    <div class="bg-[#f8f9fa] rounded-xl shadow hover:shadow-lg duration-300 max-w-md mx-auto">
+      <div class="w-full h-[200px] rounded-t-xl overflow-hidden">
+        <img src="assets/images/security.avif"
+             class="w-full h-full object-cover hover:scale-105 duration-500">
       </div>
-
-      <div class="facility-card">
-        <div class="img-canvas">
-          <img src="assets/security.jpg" alt="Security" />
-        </div>
-        <h3>24×7 Security</h3>
-        <p>Comprehensive CCTV coverage and round-the-clock warden supervision for student safety.</p>
-      </div>
-
-      <div class="facility-card">
-        <div class="img-canvas">
-          <img src="assets/wifi.jpg" alt="Wi-Fi Connectivity" />
-        </div>
-        <h3>Wi-Fi Access</h3>
-        <p>High-speed Wi-Fi available across all hostel blocks for seamless connectivity.</p>
-      </div>
-
-      <div class="facility-card">
-        <div class="img-canvas">
-          <img src="assets/recreation.jpg" alt="Recreation Area" />
-        </div>
-        <h3>Recreation Area</h3>
-        <p>Indoor games, reading corners, and common spaces to relax and interact with fellow residents.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Life at BBDIT -->
-  <section class="life">
-    <h2>Life at BBDIT</h2>
-    <div class="carousel">
-      <div class="carousel-track">
-        <div class="card"><img src="assets/life1.jpg" alt="Life at BBDIT 1"></div>
-        <div class="card"><img src="assets/life2.jpg" alt="Life at BBDIT 2"></div>
-        <div class="card"><img src="assets/life3.jpg" alt="Life at BBDIT 3"></div>
-        <div class="card"><img src="assets/life4.jpg" alt="Life at BBDIT 4"></div>
-        <div class="card"><img src="assets/life5.jpg" alt="Life at BBDIT 5"></div>
-
-        <!-- duplicate for seamless looping -->
-        <div class="card"><img src="assets/life1.jpg" alt="Life at BBDIT 1"></div>
-        <div class="card"><img src="assets/life2.jpg" alt="Life at BBDIT 2"></div>
-        <div class="card"><img src="assets/life3.jpg" alt="Life at BBDIT 3"></div>
-        <div class="card"><img src="assets/life4.jpg" alt="Life at BBDIT 4"></div>
-        <div class="card"><img src="assets/life5.jpg" alt="Life at BBDIT 5"></div>
+      <div class="p-5 text-left">
+        <h3 class="text-[#007bff] font-semibold mb-2 text-lg">24×7 Security</h3>
+        <p class="text-gray-700 text-[15px]">Comprehensive CCTV coverage and round-the-clock warden supervision for student safety.</p>
       </div>
     </div>
-  </section>
 
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <h3>Contact</h3>
-        <p>BBDIT Hostel Office<br>BBDIT Campus, Ghaziabad, Uttar Pradesh</p>
-        <p>Email: hostel@bbdit.edu.in<br>Phone: +91 91234 56789</p>
+    <div class="bg-[#f8f9fa] rounded-xl shadow hover:shadow-lg duration-300 max-w-md mx-auto">
+      <div class="w-full h-[200px] rounded-t-xl overflow-hidden">
+        <img src="assets/images/wifi.jpeg"
+             class="w-full h-full object-cover hover:scale-105 duration-500">
       </div>
-      <div>
-        <h3>Office Hours</h3>
-        <p>Mon – Sat: 9 AM – 6 PM<br>Sunday: Closed</p>
+      <div class="p-5 text-left">
+        <h3 class="text-[#007bff] font-semibold mb-2 text-lg">Wi-Fi Access</h3>
+        <p class="text-gray-700 text-[15px]">High-speed Wi-Fi available across all hostel blocks for seamless connectivity.</p>
       </div>
     </div>
-    <p class="footer-note">© 2025 BBDIT Hostel & Mess. All rights reserved.</p>
-  </footer>
 
+    <div class="bg-[#f8f9fa] rounded-xl shadow hover:shadow-lg duration-300 max-w-md mx-auto">
+      <div class="w-full h-[200px] rounded-t-xl overflow-hidden">
+        <img src="assets/images/receational.jpeg"
+             class="w-full h-full object-cover hover:scale-105 duration-500">
+      </div>
+      <div class="p-5 text-left">
+        <h3 class="text-[#007bff] font-semibold mb-2 text-lg">Recreation Area</h3>
+        <p class="text-gray-700 text-[15px]">Indoor games, reading corners, and common spaces to relax and interact with fellow residents.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- LIFE AT BBDIT CAROUSEL -->
+<section class="bg-[#f6f9ff] px-[10%] py-20 text-center overflow-hidden">
+  <h2 class="text-3xl font-semibold text-[#002147] mb-10">
+    Life at BBDIT
+  </h2>
+
+  <div class="relative life-carousel">
+    <div class="life-carousel-track">
+
+      <!-- Unique -->
+      <div class="life-carousel-card"><img src="assets/images/life1.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life2.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life3.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life4.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life5.jpg"></div>
+
+      <!-- Duplicates -->
+      <div class="life-carousel-card"><img src="assets/images/life1.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life2.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life3.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life4.jpg"></div>
+      <div class="life-carousel-card"><img src="assets/images/life5.jpg"></div>
+
+    </div>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-[#0a192f] text-white px-5 py-10">
+  <div class="max-w-5xl mx-auto flex flex-wrap justify-around gap-8">
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Contact</h3>
+      <p class="text-sm text-gray-200">
+        BBDIT Hostel Office<br />
+        BBDIT Campus, Ghaziabad, Uttar Pradesh
+      </p>
+      <p class="mt-3 text-sm text-gray-200">
+        Email: hostel@bbdit.edu.in<br />
+        Phone: +91 91234 56789
+      </p>
+    </div>
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Office Hours</h3>
+      <p class="text-sm text-gray-200">
+        Mon – Sat: 9 AM – 6 PM<br />
+        Sunday: Closed
+      </p>
+    </div>
+  </div>
+
+  <p class="text-center mt-6 text-xs text-gray-400">
+    © 2025 BBDIT Hostel &amp; Mess. All rights reserved.
+  </p>
+</footer>
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    });
+  function toggleMenu() {
+    mobileMenu.classList.toggle("right-0");
+    mobileMenu.classList.toggle("right-[-80%]");
+    mobileMenu.classList.toggle("opacity-0");
+    document.body.classList.toggle("overflow-hidden");
 
-    // Close the menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      });
-    });
+    // morph burger into X
+    hamburger.classList.toggle("active");
+  }
+
+  // Open/close
+  hamburger.addEventListener("click", toggleMenu);
+
+  // Close when clicking links
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", toggleMenu);
+  });
+
+  // Close by tapping outside
+  document.addEventListener("click", (event) => {
+    if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target) && !mobileMenu.classList.contains("opacity-0")) {
+      toggleMenu();
+    }
+  });
   </script>
+
+
 
 </body>
 </html>
