@@ -242,6 +242,9 @@
   .top-3 {
     top: calc(var(--spacing) * 3);
   }
+  .top-\[72px\] {
+    top: 72px;
+  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -250,6 +253,9 @@
   }
   .right-\[-80\%\] {
     right: -80%;
+  }
+  .z-40 {
+    z-index: 40;
   }
   .z-50 {
     z-index: 50;
@@ -329,9 +335,6 @@
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
-  .h-64 {
-    height: calc(var(--spacing) * 64);
-  }
   .h-80 {
     height: calc(var(--spacing) * 80);
   }
@@ -340,6 +343,9 @@
   }
   .h-\[200px\] {
     height: 200px;
+  }
+  .h-\[calc\(100\%-72px\)\] {
+    height: calc(100% - 72px);
   }
   .h-full {
     height: 100%;
@@ -361,9 +367,6 @@
   }
   .w-\[90\%\] {
     width: 90%;
-  }
-  .w-\[420px\] {
-    width: 420px;
   }
   .w-\[500px\] {
     width: 500px;
@@ -392,17 +395,11 @@
   .max-w-md {
     max-width: var(--container-md);
   }
-  .max-w-xl {
-    max-width: var(--container-xl);
-  }
   .min-w-full {
     min-width: 100%;
   }
   .min-w-max {
     min-width: max-content;
-  }
-  .flex-1 {
-    flex: 1;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -612,6 +609,9 @@
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
