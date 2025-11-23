@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBDIT Hostel | Mess Menu</title>
+
+  <!-- Tailwind compiled CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Optional: your extra fixes file -->
+  <link rel="stylesheet" href="../css/css.fix.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="bg-[#f9fafc] text-[#2d2d2d] overflow-x-hidden font-[Poppins]">
+
+  <!-- NAVBAR (same as homepage, Mess active) -->
+  <header class="w-full fixed top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+
+      <!-- LOGO -->
+      <a href="../index.html" class="flex items-center gap-2">
+        <img src="../assets/logo.png" class="h-11" alt="BBDIT Hostel Logo">
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="hamburger" class="md:hidden flex flex-col justify-between w-7 h-5 cursor-pointer relative">
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+      </button>
+
+      <!-- DESKTOP NAV -->
+      <nav id="nav-links"
+           class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+        <a href="../index.html" class="hover:text-[#007bff] duration-300">Home</a>
+        <a href="facilities.html" class="hover:text-[#007bff] duration-300">Facilities</a>
+        <a href="mess.html" class="text-[#007bff]">Mess Menu</a>
+        <a href="login.html"
+           class="bg-[#007bff] text-white px-4 py-2 rounded-lg hover:bg-[#005dc1] duration-300">
+          Login
+        </a>
+      </nav>
+    </div>
+
+    <!-- MOBILE SLIDING MENU -->
+    <nav id="mobile-menu"
+         class="fixed top-0 right-[-80%] w-[75%] h-full bg-white shadow-xl p-6 pt-20
+                flex flex-col gap-6 opacity-0 transition-all duration-500 md:hidden">
+      <a href="../index.html" class="text-lg font-medium border-b border-gray-200 pb-2">Home</a>
+      <a href="about.html" class="text-lg font-medium border-b border-gray-200 pb-2">Facilities</a>
+      <a href="mess.html" class="text-lg font-medium border-b border-gray-200 pb-2">Mess Menu</a>
+      <a href="login.html"
+         class="bg-[#007bff] text-white text-center px-4 py-3 rounded-lg hover:bg-[#005dc1] duration-300">
+        Login
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-24 pb-16">
+
+    <!-- HERO (Same layout as homepage hero) -->
+    <section class="w-full bg-white px-[10%] pt-32 pb-20">
+      <div class="flex flex-wrap gap-12 items-center justify-between">
+
+        <div class="max-w-md">
+          <h1 class="text-4xl font-semibold text-[#002147] mb-4">
+            Mess Menu & Timings
+          </h1>
+          <p class="text-gray-600 text-[17px] mb-6">
+            Fresh meals served daily with dedicated timings to support
+            <span class="font-semibold">1st-year students</span> and
+            <span class="font-semibold">other years</span>. Select a day to view
+            breakfast, lunch & dinner options.
+          </p>
+          <p class="text-gray-500 text-[15px]">
+            Quality meals to keep you energized and focused all day.
+          </p>
+        </div>
+
+        <div class="w-[500px] max-w-full h-80 md:h-[260px] rounded-xl overflow-hidden shadow hover:shadow-lg duration-300">
+          <img src="../assets/images/mess-food.avif"
+              alt="Hostel Mess Food"
+              class="w-full h-full object-cover hover:scale-105 duration-500" />
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Day Selector Carousel -->
+    <section class="px-[10%] py-8">
+      <div class="flex justify-center items-center gap-3 mb-4">
+        <button id="prevDay"
+          class="p-2 rounded-full border border-gray-200 hover:bg-gray-100 active:scale-95 transition">
+          <span class="sr-only">Previous day</span>
+          <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="1.8"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div class=" overflow-x-auto">
+          <div id="dayList" class="flex gap-2 min-w-max">
+            <!-- Day pills -->
+            <button data-day="monday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Mon
+            </button>
+            <button data-day="tuesday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Tue
+            </button>
+            <button data-day="wednesday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Wed
+            </button>
+            <button data-day="thursday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Thu
+            </button>
+            <button data-day="friday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Fri
+            </button>
+            <button data-day="saturday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Sat
+            </button>
+            <button data-day="sunday"
+              class="day-pill px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium
+                     hover:border-[#007bff] hover:text-[#007bff] transition">
+              Sun
+            </button>
+          </div>
+        </div>
+
+        <button id="nextDay"
+          class="p-2 rounded-full border border-gray-200 hover:bg-gray-100 active:scale-95 transition">
+          <span class="sr-only">Next day</span>
+          <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="1.8"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <p id="daySubtitle" class="text-sm text-gray-500 mb-2">
+        Select a day to view the mess menu.
+      </p>
+    </section>
+
+    <!-- Day Panels -->
+    <section class="px-[10%]">
+      <!-- Monday -->
+      <div class="day-panel mb-10" data-day-panel="monday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Monday Mess Menu
+        </h2>
+        <!-- Menu cards -->
+        <div class="grid gap-5 md:grid-cols-3">
+          <!-- Breakfast -->
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">Example: 7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Poha / Upma</li>
+              <li>Tea / Coffee</li>
+              <li>Banana / Seasonal fruit</li>
+            </ul>
+          </div>
+          <!-- Lunch -->
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">Example: 12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Dal Fry / Dal Tadka</li>
+              <li>Rice, Roti</li>
+              <li>Mixed Veg Sabzi</li>
+              <li>Salad &amp; Pickle</li>
+            </ul>
+          </div>
+          <!-- Dinner -->
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">Example: 7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Rajma / Chole</li>
+              <li>Rice, Roti</li>
+              <li>Sweet Dish (Kheer / Halwa)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Timings Table -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-gray-500 mt-2">
+            Note: Above timings are sample slots. Adjust them to match actual hostel mess schedule.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tuesday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="tuesday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Tuesday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Aloo Paratha / Curd</li>
+              <li>Pickle</li>
+              <li>Tea / Coffee</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Rajma Chawal</li>
+              <li>Roti</li>
+              <li>Salad</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Paneer Butter Masala</li>
+              <li>Jeera Rice, Roti</li>
+              <li>Gulab Jamun</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Same timings table as Monday -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Wednesday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="wednesday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Wednesday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Idli / Sambhar / Chutney</li>
+              <li>Tea / Coffee</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Dal Makhani</li>
+              <li>Veg Pulao, Roti</li>
+              <li>Raita</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Egg Curry / Veg Alternative</li>
+              <li>Rice, Roti</li>
+              <li>Salad</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Timings table (same) -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Thursday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="thursday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Thursday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Stuffed Paratha (Aloo / Mix Veg)</li>
+              <li>Curd, Pickle</li>
+              <li>Tea / Coffee</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Kadhi Chawal</li>
+              <li>Roti</li>
+              <li>Dry Sabzi</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Veg Korma</li>
+              <li>Rice, Roti</li>
+              <li>Salad</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Timings -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="friday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Friday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Sandwiches (Veg)</li>
+              <li>Boiled Eggs / Paneer</li>
+              <li>Tea / Coffee</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Chole Bhature / Chole Puri</li>
+              <li>Salad</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Veg Biryani</li>
+              <li>Raita</li>
+              <li>Sweet / Fruit</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Timings -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Saturday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="saturday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Saturday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Poori Bhaji</li>
+              <li>Tea / Coffee</li>
+              <li>Sweet / Fruit</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Dal Fry</li>
+              <li>Seasonal Veg Sabzi</li>
+              <li>Rice, Roti</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Chinese Night (Noodles / Manchurian)</li>
+              <li>Soup</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Timings -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sunday -->
+      <div class="day-panel mb-10 hidden" data-day-panel="sunday">
+        <h2 class="text-xl font-semibold text-[#002147] mb-4">
+          Sunday Mess Menu
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Breakfast</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 AM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Special Breakfast (e.g. Chole Bhature)</li>
+              <li>Sweet / Fruit</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Lunch</h3>
+            <p class="text-xs text-gray-500 mb-2">12:00–2:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Paneer / Special Sabzi</li>
+              <li>Rice, Roti</li>
+              <li>Raita, Salad</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5">
+            <h3 class="text-lg font-semibold text-[#002147] mb-1">Dinner</h3>
+            <p class="text-xs text-gray-500 mb-2">7:00–9:00 PM</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              <li>Light Dinner (Khichdi / Pulav)</li>
+              <li>Curd / Buttermilk</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Timings -->
+        <div class="mt-6 bg-white rounded-xl shadow p-5 overflow-x-auto">
+          <h3 class="text-md font-semibold text-[#002147] mb-3">
+            Dining Timings (1st Year vs Other Years)
+          </h3>
+          <table class="min-w-full text-sm text-left border border-gray-200 rounded">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 border-b border-gray-200">Meal</th>
+                <th class="px-4 py-2 border-b border-gray-200">1st Year Slot</th>
+                <th class="px-4 py-2 border-b border-gray-200">Other Years Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Breakfast</td>
+                <td class="px-4 py-2 border-b border-gray-100">7:00 – 8:00 AM</td>
+                <td class="px-4 py-2 border-b border-gray-100">8:00 – 9:00 AM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2 border-b border-gray-100">Lunch</td>
+                <td class="px-4 py-2 border-b border-gray-100">12:00 – 1:00 PM</td>
+                <td class="px-4 py-2 border-b border-gray-100">1:00 – 2:00 PM</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-4 py-2">Dinner</td>
+                <td class="px-4 py-2">7:00 – 8:00 PM</td>
+                <td class="px-4 py-2">8:00 – 9:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (same as homepage) -->
+  <footer class="bg-[#0a192f] text-white px-5 py-10 mt-10">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-around gap-8">
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Contact</h3>
+        <p class="text-sm text-gray-200">
+          BBDIT Hostel Office<br />
+          BBDIT Campus, Ghaziabad, Uttar Pradesh
+        </p>
+        <p class="mt-3 text-sm text-gray-200">
+          Email: hostel@bbdit.edu.in<br />
+          Phone: +91 91234 56789
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Office Hours</h3>
+        <p class="text-sm text-gray-200">
+          Mon – Sat: 9 AM – 6 PM<br />
+          Sunday: Closed
+        </p>
+      </div>
+    </div>
+
+    <p class="text-center mt-6 text-xs text-gray-400">
+      © 2025 BBDIT Hostel &amp; Mess. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- JS: Navbar + Mess Day Carousel -->
+  <script>
+    // NAVBAR: hamburger + mobile menu
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle("right-0");
+      mobileMenu.classList.toggle("right-[-80%]");
+      mobileMenu.classList.toggle("opacity-0");
+      document.body.classList.toggle("overflow-hidden");
+      hamburger.classList.toggle("active");
+    }
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", toggleMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!hamburger.contains(event.target) &&
+          !mobileMenu.contains(event.target) &&
+          !mobileMenu.classList.contains("opacity-0")) {
+        toggleMenu();
+      }
+    });
+
+    // Mess day carousel
+    const dayOrder = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+    const dayPills = document.querySelectorAll(".day-pill");
+    const dayPanels = document.querySelectorAll(".day-panel");
+    const daySubtitle = document.getElementById("daySubtitle");
+    const prevDayBtn = document.getElementById("prevDay");
+    const nextDayBtn = document.getElementById("nextDay");
+
+    let currentDayIndex = 0;
+
+    function setActiveDay(dayKey) {
+      currentDayIndex = dayOrder.indexOf(dayKey);
+      if (currentDayIndex < 0) currentDayIndex = 0;
+
+      dayPills.forEach(btn => {
+        const key = btn.getAttribute("data-day");
+        if (key === dayKey) {
+          btn.classList.add("bg-[#007bff]","text-white","border-[#007bff]");
+          btn.classList.remove("bg-white","text-[#2d2d2d]");
+          btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        } else {
+          btn.classList.remove("bg-[#007bff]","text-white","border-[#007bff]");
+          btn.classList.add("bg-white");
+        }
+      });
+
+      dayPanels.forEach(panel => {
+        const key = panel.getAttribute("data-day-panel");
+        if (key === dayKey) {
+          panel.classList.remove("hidden");
+        } else {
+          panel.classList.add("hidden");
+        }
+      });
+
+      const label = dayKey.charAt(0).toUpperCase() + dayKey.slice(1);
+      daySubtitle.textContent = label + " — Mess menu & timings";
+    }
+
+    dayPills.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-day");
+        setActiveDay(key);
+      });
+    });
+
+    prevDayBtn.addEventListener("click", () => {
+      currentDayIndex = (currentDayIndex - 1 + dayOrder.length) % dayOrder.length;
+      setActiveDay(dayOrder[currentDayIndex]);
+    });
+
+    nextDayBtn.addEventListener("click", () => {
+      currentDayIndex = (currentDayIndex + 1) % dayOrder.length;
+      setActiveDay(dayOrder[currentDayIndex]);
+    });
+
+    // Default: open today's day (approx) or Monday
+    (function initDay() {
+      const jsDay = new Date().getDay(); // 0=Sun
+      let defaultKey = "monday";
+      if (jsDay === 0) defaultKey = "sunday";
+      else if (jsDay === 1) defaultKey = "monday";
+      else if (jsDay === 2) defaultKey = "tuesday";
+      else if (jsDay === 3) defaultKey = "wednesday";
+      else if (jsDay === 4) defaultKey = "thursday";
+      else if (jsDay === 5) defaultKey = "friday";
+      else if (jsDay === 6) defaultKey = "saturday";
+      setActiveDay(defaultKey);
+    })();
+  </script>
+
+</body>
+</html>
