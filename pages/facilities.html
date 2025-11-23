@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBDIT Hostel | Facilities</title>
+  <meta name="description" content="Explore the facilities offered by BBDIT Hostel, designed to provide a comfortable and supportive living environment for students." />
+  <meta name="keywords" content="BBDIT Hostel, Hostel Facilities, Student Accommodation, Campus Living, Student Support, Hostel Amenities" />
+  <meta name="author" content="BBDIT Hostel Management" />
+  <!-- Tailwind compiled CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Your extra fixes file (safe even if mostly for homepage) -->
+  <link rel="stylesheet" href="../css/css.fix.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-[#f9fafc] text-[#2d2d2d] overflow-x-hidden font-[Poppins]">
+
+  <!-- NAVBAR (copied from homepage) -->
+  <header class="w-full fixed top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+
+      <!-- LOGO -->
+      <a href="../index.html" class="flex items-center gap-2">
+        <img src="../assets/logo.png" class="h-11" alt="BBDIT Hostel Logo">
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="hamburger" class="md:hidden flex flex-col justify-between w-7 h-5 cursor-pointer relative">
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+        <span class="block w-full h-[3px] bg-[#002147] rounded transition-all duration-300"></span>
+      </button>
+
+      <!-- DESKTOP NAV -->
+      <nav id="nav-links"
+        class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+        <a href="../index.html" class="hover:text-[#007bff] duration-300">Home</a>
+        <a href="facilities.html" class="text-[#007bff]">Facilities</a>
+        <a href="mess.html" class="hover:text-[#007bff] duration-300">Mess Menu</a>
+        <a href="login.html"
+          class="bg-[#007bff] text-white px-4 py-2 rounded-lg hover:bg-[#005dc1] duration-300">
+          Login
+        </a>
+      </nav>
+    </div>
+
+    <!-- MOBILE SLIDING MENU -->
+    <nav id="mobile-menu"
+      class="fixed top-0 right-[-80%] w-[75%] h-full bg-white shadow-xl p-6 pt-20
+             flex flex-col gap-6 opacity-0 transition-all duration-500 md:hidden">
+      
+      <a href="../index.html" class="text-lg font-medium border-b border-gray-200 pb-2">Home</a>
+      <a href="facilities.html" class="text-lg font-medium border-b border-gray-200 pb-2">Facilities</a>
+      <a href="mess.html" class="text-lg font-medium border-b border-gray-200 pb-2">Mess Menu</a>
+
+      <a href="login.html"
+        class="bg-[#007bff] text-white text-center px-4 py-3 rounded-lg hover:bg-[#005dc1] duration-300">
+        Login
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-24 pb-16">
+
+    <!-- Page heading -->
+    <section class="px-[10%] py-12 bg-white">
+      <h1 class="text-3xl md:text-4xl font-semibold text-[#002147] mb-3">
+        Hostel Facilities
+      </h1>
+      <p class="text-gray-600 max-w-2xl">
+        BBDIT Hostel is designed to support your academic journey and daily life with reliable infrastructure,
+        a supportive environment, and a connected community.
+      </p>
+    </section>
+
+    <!-- Facilities Grid -->
+    <section class="px-[10%] py-10">
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+        <!-- Power Backup -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="power-backup">
+          <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+            <!-- lightning icon -->
+            <svg class="w-6 h-6 text-[#007bff]" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Power Backup</h2>
+          <p class="text-sm text-gray-600">
+            Reliable power backup ensures uninterrupted study and hostel life, even during outages.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Comfortable Rooms -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="comfortable-rooms">
+          <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
+            <!-- bed icon -->
+            <svg class="w-6 h-6 text-[#00b37a]" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 10h18M7 10V7a2 2 0 0 1 2-2h3a3 3 0 0 1 3 3v2m-12 4v5m14-5v5m-10-5h6" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Comfortable Rooms</h2>
+          <p class="text-sm text-gray-600">
+            Well-ventilated, furnished rooms with study desks and storage for focused and organized living.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- 24×7 Security -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="security">
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+            <!-- shield icon -->
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3l7 4v5c0 4.418-3.134 8.335-7 9-3.866-.665-7-4.582-7-9V7l7-4z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">24×7 Security</h2>
+          <p class="text-sm text-gray-600">
+            CCTV coverage, warden supervision, and controlled entry ensure a safe residential environment.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Wi-Fi Access -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="wifi">
+          <div class="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center">
+            <!-- wifi icon -->
+            <svg class="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5 12.55A11 11 0 0 1 12 10c2.5 0 4.78.82 6.64 2.2M8.5 16.06A6.5 6.5 0 0 1 12 15c1.3 0 2.5.38 3.5 1.06M12 20h.01" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Wi-Fi Access</h2>
+          <p class="text-sm text-gray-600">
+            High-speed Wi-Fi across hostel blocks for online classes, research, and communication.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Recreation Area -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="recreation">
+          <div class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center">
+            <!-- gamepad icon -->
+            <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6 12h4m-2-2v4m5-2h3m1-6H7a3 3 0 0 0-3 3v6.5A2.5 2.5 0 0 0 6.5 18h11A2.5 2.5 0 0 0 20 15.5V9a3 3 0 0 0-3-3z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Recreation Area</h2>
+          <p class="text-sm text-gray-600">
+            Indoor games and common lounges to relax, socialize, and recharge between academic schedules.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Hostel Soft Support -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="soft-support">
+          <div class="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center">
+            <!-- headset/help icon -->
+            <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3a7 7 0 0 0-7 7v4a3 3 0 0 0 3 3h1v-4H7v-3a5 5 0 0 1 10 0v3h-2v4h1a3 3 0 0 0 3-3v-4a7 7 0 0 0-7-7z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Hostel Soft Support</h2>
+          <p class="text-sm text-gray-600">
+            Warden and staff support for day-to-day issues, guidance, and a smooth hostel experience.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Hostel Peer Network -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="peer-network">
+          <div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center">
+            <!-- users icon -->
+            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1m18 0v-1a3 3 0 0 0-2-2.82M15 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm4 3a3 3 0 1 1-6 0" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Hostel Peer Network</h2>
+          <p class="text-sm text-gray-600">
+            A close-knit peer community that helps with academics, clubs, events, and settling into campus life.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+        <!-- Hostel Alumni Network -->
+        <button
+          class="facility-card text-left bg-white rounded-xl shadow hover:shadow-lg border border-gray-100
+                 p-6 flex flex-col gap-3 transition duration-200 cursor-pointer"
+          data-facility="alumni-network">
+          <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center">
+            <!-- network icon -->
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 5.5A2.5 2.5 0 1 1 9.5 3 2.5 2.5 0 0 1 12 5.5zm6 4A2.5 2.5 0 1 1 15.5 7 2.5 2.5 0 0 1 18 9.5zm-12 0A2.5 2.5 0 1 1 3.5 7 2.5 2.5 0 0 1 6 9.5zM7.5 15h9M9 12l-1.5 3M15 12l1.5 3" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-[#002147]">Hostel Alumni Network</h2>
+          <p class="text-sm text-gray-600">
+            Informal connects with hostel alumni for mentorship, placement guidance, and real-world insights.
+          </p>
+          <span class="mt-1 text-sm font-medium text-[#007bff]">
+            View details →
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALS (simple fade) -->
+
+  <!-- Power Backup Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="power-backup">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Power Backup</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        The hostel is supported with a reliable power backup system so that your study, rest, and daily routines
+        are not interrupted during power cuts.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Backup for common areas and essential hostel services.</li>
+        <li>Ensures lighting and basic electrical usage remain stable.</li>
+        <li>Helps maintain a safe and comfortable environment during outages.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Comfortable Rooms Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="comfortable-rooms">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Comfortable Rooms</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Rooms are designed to be practical and student-friendly so that you can focus on academics and personal growth.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Furnished with beds, study tables, and storage units.</li>
+        <li>Good ventilation and natural light where possible.</li>
+        <li>Layout suited for shared living with personal study space.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 24×7 Security Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="security">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">24×7 Security</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Student safety is a primary priority, with multiple layers of monitoring and supervision.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>CCTV surveillance in key hostel and campus areas.</li>
+        <li>Warden and support staff presence.</li>
+        <li>Entry/exit discipline to ensure a secure environment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Wi-Fi Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="wifi">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Wi-Fi Access</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Connectivity is essential for today’s coursework, projects, and communication.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Wi-Fi available in hostel blocks within coverage limits.</li>
+        <li>Useful for online lectures, coding, research, and collaboration.</li>
+        <li>Encourages responsible and productive internet usage.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Recreation Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="recreation">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Recreation Area</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Balanced hostel life means space for rest and interaction beyond classes and labs.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Common areas for indoor games and informal interactions.</li>
+        <li>Helps build friendships and reduce academic stress.</li>
+        <li>Can be used for small group activities and hostel events.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Soft Support Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="soft-support">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Hostel Soft Support</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Beyond infrastructure, hostel staff and wardens play a key role in supporting students.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Assistance with room-related issues and maintenance reporting.</li>
+        <li>Basic guidance for hostel rules, procedures, and safety.</li>
+        <li>Approachable environment to raise genuine concerns.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Peer Network Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="peer-network">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Hostel Peer Network</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Living on campus naturally builds a peer network that supports growth far beyond academics.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Study groups for exams, labs, and projects.</li>
+        <li>Exposure to seniors who can guide about subjects and internships.</li>
+        <li>A support system when staying away from home.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alumni Network Modal -->
+  <div class="facility-modal fixed inset-0 bg-black/40 flex items-center justify-center
+              opacity-0 pointer-events-none transition-opacity duration-200"
+       data-modal="alumni-network">
+    <div class="bg-white rounded-xl max-w-lg w-[90%] p-6 relative">
+      <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl leading-none"
+              data-close-modal>&times;</button>
+      <h2 class="text-2xl font-semibold text-[#002147] mb-2">Hostel Alumni Network</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        Over time, hostel residents form an informal alumni network that can be a big advantage.
+      </p>
+      <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+        <li>Connections with seniors in companies and higher studies.</li>
+        <li>Insights into placements, interviews, and career paths.</li>
+        <li>Possibility of mentorship and guidance after graduation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER (copied from homepage) -->
+  <footer class="bg-[#0a192f] text-white px-5 py-10 mt-10">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-around gap-8">
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Contact</h3>
+        <p class="text-sm text-gray-200">
+          BBDIT Hostel Office<br />
+          BBDIT Campus, Ghaziabad, Uttar Pradesh
+        </p>
+        <p class="mt-3 text-sm text-gray-200">
+          Email: hostel@bbdit.edu.in<br />
+          Phone: +91 91234 56789
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Office Hours</h3>
+        <p class="text-sm text-gray-200">
+          Mon – Sat: 9 AM – 6 PM<br />
+          Sunday: Closed
+        </p>
+      </div>
+    </div>
+
+    <p class="text-center mt-6 text-xs text-gray-400">
+      © 2025 BBDIT Hostel &amp; Mess. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- JS: Hamburger + Modals -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle("right-0");
+      mobileMenu.classList.toggle("right-[-80%]");
+      mobileMenu.classList.toggle("opacity-0");
+      document.body.classList.toggle("overflow-hidden");
+      hamburger.classList.toggle("active");
+    }
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", toggleMenu);
+    });
+
+    // Close by tapping outside
+    document.addEventListener("click", (event) => {
+      if (!hamburger.contains(event.target) &&
+          !mobileMenu.contains(event.target) &&
+          !mobileMenu.classList.contains("opacity-0")) {
+        toggleMenu();
+      }
+    });
+
+    // Facilities modals
+    const facilityCards = document.querySelectorAll("[data-facility]");
+    const facilityModals = document.querySelectorAll(".facility-modal");
+
+    facilityCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const key = card.getAttribute("data-facility");
+        const modal = document.querySelector('.facility-modal[data-modal="' + key + '"]');
+        if (!modal) return;
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        document.body.classList.add("overflow-hidden");
+      });
+    });
+
+    facilityModals.forEach(modal => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal || e.target.hasAttribute("data-close-modal")) {
+          modal.classList.add("opacity-0", "pointer-events-none");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
