@@ -1,58 +1,61 @@
+/* Load full Tailwind */
 @import "tailwindcss";
 
-/* ============================================================
-   LIFE CAROUSEL — FINAL FIXED VERSION WITH CSS MASK
-   ============================================================ */
-
+/* ============================
+   Custom Utilities Layer
+   ============================ */
 @layer utilities {
 
-  /* Track Animation + Mask Fade */
+  /* Fix Carousel Left Edge Alignment */
+  .life-carousel {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+  }
+
   .life-carousel-track {
     display: flex;
     width: max-content;
     animation: life-scroll 30s linear infinite;
-
-
-    
+    margin-left: 0 !important;
+    padding-left: 0 !important;
   }
 
-
-
-  /* Each Carousel Item Container */
+  /* Cards */
   .life-carousel-card {
     flex: 0 0 250px;
     height: 180px;
     margin: 0 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: relative;
     z-index: 0;
-    background: transparent;
   }
 
   .life-carousel-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    transition: transform 0.5s ease;
   }
 
-  .life-carousel-card img:hover {
-    transform: scale(1.06);
-  }
-
-  /* Pause on hover */
+  /* Pause Motion On Hover */
   .life-carousel:hover .life-carousel-track {
     animation-play-state: paused;
   }
 
-  /* Keyframe */
+  /* Keyframes */
   @keyframes life-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* Responsive card size */
+  /* Responsive Sizing */
   @media (max-width: 900px) {
     .life-carousel-card {
       flex-basis: 200px;
@@ -60,7 +63,6 @@
       margin: 0 10px;
     }
   }
-
   @media (max-width: 600px) {
     .life-carousel-card {
       flex-basis: 160px;
@@ -69,13 +71,7 @@
     }
   }
 
-  /* Hide overlay divs now */
-  .carousel-fade-left,
-  .carousel-fade-right {
-    display: none !important;
-  }
-
-  /* Hamburger Animation */
+  /* Hamburger → X Transition */
   #hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
