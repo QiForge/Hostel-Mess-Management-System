@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBDIT Hostel | Login</title>
 
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f9fafc;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Desktop UI */
+    #auth-wrapper {
+      width: 100%;
+      max-width: 850px;
+      height: 500px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    #slider {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .panel {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+      gap: 16px;
+      background: #fff;
+    }
+
+    #overlay {
+      width: 50%;
+      height: 100%;
+      background: #002147;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .input-box {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      border-radius: 8px;
+      outline: none;
+      transition: .25s;
+      width: 100%;
+    }
+
+    .input-box:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 3px #007bff50;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Mobile UI */
+    #mobile-auth {
+      display: none;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .mobile-panel {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      display: none;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .mobile-panel.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      #auth-wrapper { display: none; }
+      #mobile-auth { display: block; }
+    }
+  </style>
+</head>
+
+<body class="flex justify-center items-center min-h-screen px-4">
+
+  <!-- DESKTOP AUTH -->
+  <div id="auth-wrapper">
+    <div id="slider">
+      <!-- Login Desktop -->
+      <div id="loginPanel" class="panel">
+        <h2 class="text-3xl font-semibold text-[#002147]">Sign In</h2>
+        <input type="email" placeholder="Email" class="input-box">
+        <input type="password" placeholder="Password" class="input-box">
+        <a class="text-sm text-[#007bff] hover:underline cursor-pointer">Forgot Password?</a>
+        <button class="bg-[#007bff] text-white py-3 rounded-lg hover:bg-[#005dc1] font-semibold transition">Login</button>
+        <p class="text-sm mt-2">New here?
+          <span id="switchToSignup" class="text-[#007bff] cursor-pointer hover:underline font-medium">Create account</span>
+        </p>
+      </div>
+
+      <!-- Signup Desktop -->
+      <div id="signupPanel" class="panel">
+        <h2 class="text-3xl font-semibold text-[#002147]">Create Account</h2>
+        <input type="text" placeholder="Full Name" class="input-box">
+        <input type="email" placeholder="Email" class="input-box">
+        <input type="password" placeholder="Password" class="input-box">
+        <button class="bg-[#00b37a] text-white py-3 rounded-lg hover:bg-[#008f62] font-semibold transition">Sign Up</button>
+        <p class="text-sm mt-2">Already have an account?
+          <span id="switchToLogin" class="text-[#007bff] cursor-pointer hover:underline font-medium">Login</span>
+        </p>
+      </div>
+    </div>
+
+    <div id="overlay">
+      <a href="../index.html"><img src="../assets/logo.png" class="h-14 mb-4"></a>
+      <h3 class="text-xl font-semibold" id="overlayTitle">New Here?</h3>
+      <p class="text-sm opacity-90 mb-6" id="overlayText">Join our hostel community today.</p>
+      <button id="overlayBtn"
+              class="border border-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#002147] transition">
+        Sign Up
+      </button>
+    </div>
+  </div>
+
+
+  <!-- MOBILE AUTH -->
+  <div id="mobile-auth" class="text-center">
+    
+    <!-- Login Mobile -->
+    <div id="mobile-login" class="mobile-panel active">
+      <a href="../index.html"><img src="../assets/logo.png" class="h-16 mx-auto mb-4"></a>
+      <h2 class="text-3xl font-semibold text-[#002147] mb-3">Sign In</h2>
+      <input type="email" placeholder="Email" class="input-box">
+      <input type="password" placeholder="Password" class="input-box">
+      <button class="bg-[#007bff] text-white py-3 rounded-lg hover:bg-[#005dc1] font-semibold transition">
+        Login
+      </button>
+      <p class="text-sm mt-2">New here?
+        <span id="mSwitchSignup" class="text-[#007bff] cursor-pointer hover:underline">Create account</span>
+      </p>
+    </div>
+
+    <!-- Signup Mobile -->
+    <div id="mobile-signup" class="mobile-panel">
+      <a href="../index.html"><img src="../assets/logo.png" class="h-16 mx-auto mb-4"></a>
+      <h2 class="text-3xl font-semibold text-[#002147] mb-3">Create Account</h2>
+      <input type="text" placeholder="Full Name" class="input-box">
+      <input type="email" placeholder="Email" class="input-box">
+      <input type="password" placeholder="Password" class="input-box">
+      <button class="bg-[#00b37a] text-white py-3 rounded-lg hover:bg-[#008f62] font-semibold transition">
+        Sign Up
+      </button>
+      <p class="text-sm mt-2">Already have an account?
+        <span id="mSwitchLogin" class="text-[#007bff] cursor-pointer hover:underline">Login</span>
+      </p>
+    </div>
+
+  </div>
+
+
+<script>
+  // Desktop switching
+  const slider = document.getElementById("slider");
+  const overlay = document.getElementById("overlay");
+  const overlayBtn = document.getElementById("overlayBtn");
+  const switchToSignup = document.getElementById("switchToSignup");
+  const switchToLogin = document.getElementById("switchToLogin");
+
+  function showSignup() {
+    slider.style.transform = "translateX(0%)";
+    overlay.style.transform = "translateX(-100%)";
+    overlayBtn.textContent = "Login";
+  }
+  function showLogin() {
+    slider.style.transform = "translateX(0)";
+    overlay.style.transform = "translateX(0)";
+    overlayBtn.textContent = "Sign Up";
+  }
+
+  overlayBtn.addEventListener("click", () =>
+    overlayBtn.textContent === "Sign Up" ? showSignup() : showLogin()
+  );
+  switchToSignup?.addEventListener("click", showSignup);
+  switchToLogin?.addEventListener("click", showLogin);
+
+  showLogin();
+
+
+  // Mobile switching
+  const mLogin = document.getElementById("mobile-login");
+  const mSignup = document.getElementById("mobile-signup");
+
+  document.getElementById("mSwitchSignup").addEventListener("click", () => {
+    mLogin.classList.remove("active");
+    mSignup.classList.add("active");
+  });
+
+  document.getElementById("mSwitchLogin").addEventListener("click", () => {
+    mSignup.classList.remove("active");
+    mLogin.classList.add("active");
+  });
+</script>
+
+</body>
+</html>
