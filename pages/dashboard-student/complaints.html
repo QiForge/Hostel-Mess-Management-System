@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard-Complaints</title>
+  <link href="../../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-white border-r hidden md:block">
+    <div class="px-6 py-6">
+      <h1 class="text-2xl font-bold mb-6">Student Panel</h1>
+
+      <nav class="space-y-1">
+        <a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Dashboard</a>
+        <a href="leave.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Leave Request</a>
+        <a href="rooms.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Rooms</a>
+        <a href="complaints.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Complaints</a>
+        <a href="profile.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Profile</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MOBILE BUTTON -->
+  <button id="menuToggle" class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">
+    ☰
+  </button>
+
+  <!-- MOBILE SIDEBAR -->
+  <aside id="mobileMenu"
+    class="fixed inset-y-0 left-0 w-64 bg-white border-r p-6 shadow transform -translate-x-full 
+           transition-all duration-300 md:hidden">
+    <h1 class="text-2xl font-bold mb-6">Student Panel</h1>
+
+    <nav class="space-y-1">
+      <a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Dashboard</a>
+      <a href="leave.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Leave Request</a>
+      <a href="rooms.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Rooms</a>
+      <a href="complaints.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Complaints</a>
+      <a href="profile.html" class="block px-4 py-2 rounded hover:bg-gray-100 font-medium">Profile</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-1 flex flex-col">
+
+    <!-- TOP NAVBAR -->
+    <header class="w-full bg-white border-b p-4 flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Complaint</h2>
+
+      <div class="flex items-center gap-3">
+        <span class="font-medium">Yogesh</span>
+        <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="p-6">
+    <div class="space-y-8">
+
+      <!-- COMPLAINT FORM -->
+      <section class="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 class="text-xl font-semibold">Register Complaint</h2>
+
+        <select class="border p-2 rounded w-full">
+          <option disabled selected>Select Category</option>
+          <option>Water</option>
+          <option>Electricity</option>
+          <option>Mess Food</option>
+          <option>Cleanliness</option>
+          <option>Other</option>
+        </select>
+
+        <textarea placeholder="Describe your complaint…" 
+                  class="border p-2 rounded w-full h-28"></textarea>
+
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Submit
+        </button>
+      </section>
+
+      <!-- HISTORY -->
+      <section class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4">Complaint History</h2>
+
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="py-2 text-left">Category</th>
+              <th class="text-left">Description</th>
+              <th class="text-left">Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="border-b">
+              <td class="py-3">Water</td>
+              <td>No water supply</td>
+              <td class="text-yellow-600 font-semibold">Pending</td>
+            </tr>
+
+            <tr class="border-b">
+              <td class="py-3">Mess</td>
+              <td>Food was cold</td>
+              <td class="text-green-600 font-semibold">Resolved</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+    </div>
+
+    </main>
+
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("-translate-x-full");
+  });
+</script>
+
+</body>
+</html>
