@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications</title>
+  <link href="../../css/dashboard.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #001f3a;
+      --blue: #007bff;
+      --sidebar-bg: #f7faff;
+      --active-bg: #e2ecff;
+      --page-bg: #f4f7fc;
+      --icon-hover-bg: #f1f5ff;
+      --icon-active-bg: #e2ecff;
+    }
+
+    .nav-item {
+      border-left: 3px solid transparent;
+      border-radius: 6px;
+      transition: 0.18s ease;
+      color: #2d2d2d;
+    }
+    .nav-item:hover { background: #f0f6fb; }
+
+    .active-link {
+      background: var(--active-bg) !important;
+      color: var(--blue) !important;
+      border-left: 3px solid var(--blue);
+      font-weight: 600;
+    }
+    .active-link .icon-box { background: var(--icon-active-bg) !important; }
+    .active-link svg { stroke: #1d4ed8 !important; }
+
+    .icon-box {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: 0.18s ease;
+    }
+    .nav-item:hover .icon-box { background: var(--icon-hover-bg); }
+    .nav-item:hover svg { stroke: #1d4ed8; }
+
+    .btn-red {
+      background: #ef4444;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-red:hover { background: #dc2626; }
+  </style>
+</head>
+
+<body style="background: var(--page-bg);">
+
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR (Desktop) -->
+  <aside class="w-64 h-screen fixed hidden md:flex flex-col justify-between border-r"
+         style="background: var(--sidebar-bg);">
+
+    <div class="px-6 py-6">
+
+      <a href="/" class="flex flex-col items-center mb-8">
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
+        <h1 class="text-xl font-bold" style="color: var(--navy);">Student Panel</h1>
+      </a>
+
+      <nav class="space-y-1">
+
+        <a href="dashboard.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Dashboard Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          Dashboard
+        </a>
+
+        <!-- NOTIFICATIONS (ACTIVE) -->
+        <a href="notifications.html" class="nav-item active-link flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Bell Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2"
+                 class="w-5 h-5 stroke-[#1d4ed8]" viewBox="0 0 24 24">
+              <path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14V11a6 6 0 1 0-12 0v3a2 2 0 0 1-.6 1.4L4 17h5"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+          </div>
+          Notifications
+        </a>
+
+        <a href="leave.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Calendar Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <line x1="8" y1="3" x2="8" y2="7"/>
+              <line x1="16" y1="3" x2="16" y2="7"/>
+            </svg>
+          </div>
+          Leave Request
+        </a>
+
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Room Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"/>
+              <rect x="9" y="13" width="6" height="8" rx="1"/>
+            </svg>
+          </div>
+          Rooms
+        </a>
+
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Complaint Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2"
+                 class="w-5 h-5 stroke-[#4b5563]" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.4 8.4 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"/>
+            </svg>
+          </div>
+          Complaints
+        </a>
+
+        <a href="mess-feedback.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Chef Hat -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2"
+                 class="w-5 h-5 stroke-[#4b5563]" viewBox="0 0 24 24">
+              <path d="M12 3a5 5 0 0 1 5 5v1h-1v4H8V9H7V8a5 5 0 0 1 5-5z"></path>
+              <path d="M8 17h8v4H8z"></path>
+            </svg>
+          </div>
+          Mess Feedback
+        </a>
+
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <!-- Profile Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"/>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"/>
+            </svg>
+          </div>
+          Profile
+        </a>
+
+      </nav>
+
+    </div>
+
+    <div class="px-6 py-4 border-t">
+      <button class="btn-red w-full">Logout</button>
+    </div>
+
+  </aside>
+
+  <!-- MOBILE SIDEBAR -->
+  <aside id="mobileMenu"
+         class="fixed inset-y-0 left-0 w-64 p-6 pt-16 bg-white border-r shadow-lg transform -translate-x-full transition-all duration-300 md:hidden z-40 flex flex-col justify-between">
+
+    <div>
+
+      <a href="/" class="flex flex-col items-center mb-8">
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
+        <h1 class="text-xl font-bold" style="color:var(--navy);">Student Panel</h1>
+      </a>
+
+      <nav class="space-y-1">
+
+        <a href="dashboard.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Dashboard Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          Dashboard
+        </a>
+
+        <!-- Active -->
+        <a href="notifications.html" class="nav-item active-link flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Bell Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2"
+                 class="w-5 h-5 stroke-[#1d4ed8]" viewBox="0 0 24 24">
+              <path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14V11a6 6 0 1 0-12 0v3a2 2 0 0 1-.6 1.4L4 17h5"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+          </div>
+          Notifications
+        </a>
+
+        <a href="leave.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Calendar -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          Leave Request
+        </a>
+
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Room -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          Rooms
+        </a>
+
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Complaint -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2"
+                 class="w-5 h-5 stroke-[#4b5563]" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.4 8.4 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"/>
+            </svg>
+          </div>
+          Complaints
+        </a>
+
+        <a href="mess-feedback.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Chef Hat -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M12 3a5 5 0 0 1 5 5v1h-1v4H8V9H7V8a5 5 0 0 1 5-5z"/>
+              <path d="M8 17h8v4H8z"/>
+            </svg>
+          </div>
+          Mess Feedback
+        </a>
+
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <!-- Profile -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          Profile
+        </a>
+
+      </nav>
+
+    </div>
+
+    <div class="border-t pt-6">
+      <button class="btn-red w-full">Logout</button>
+    </div>
+
+  </aside>
+
+
+  <!-- Mobile Menu Button -->
+  <button id="menuToggle"
+          class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">☰</button>
+
+  <!-- CONTENT -->
+  <div class="flex-1 flex flex-col md:ml-64">
+
+    <!-- TOPBAR (centered on mobile) -->
+    <header class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-center md:justify-between"
+            style="backdrop-filter: blur(6px);">
+
+      <h2 class="text-xl font-semibold" style="color:var(--navy);">Notifications</h2>
+
+      <div class="hidden md:flex items-center gap-3">
+        <span class="font-medium" style="color:var(--navy);">Yogesh</span>
+        <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
+      </div>
+
+    </header>
+
+    <main class="p-6">
+
+      <section class="p-6 rounded-xl shadow bg-white border border-gray-200">
+        <h2 class="text-xl font-bold" style="color:var(--navy);">No Notifications</h2>
+        <p class="text-gray-600 mt-2">All your notices will appear here once the system begins generating them.</p>
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("-translate-x-full");
+  });
+</script>
+
+</body>
+</html>
