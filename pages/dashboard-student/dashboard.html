@@ -3,118 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <link href="../../css/dashboard.css" rel="stylesheet">
-  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <title>Student Dashboard</title>
+
+  <style>
+    :root {
+      --navy: #001f3a;
+      --blue: #007bff;
+      --blue-hover: #005dc1;
+
+      --sidebar-bg: #f7faff;
+      --active-bg: #e2ecff;
+      --page-bg: #f4f7fc;
+
+      --icon-hover-bg: #f1f5ff;
+      --icon-active-bg: #e2ecff;
+    }
+
+    /* Sidebar base */
+    .nav-item {
+      border-left: 3px solid transparent;
+      border-radius: 6px;
+      transition: 0.18s ease;
+      color: #2d2d2d;
+    }
+    .nav-item:hover {
+      background: #f0f6fb;
+    }
+
+    /* Active Link */
+    .active-link {
+      background: var(--active-bg) !important;
+      color: var(--blue) !important;
+      border-left: 3px solid var(--blue);
+      font-weight: 600;
+    }
+    .active-link .icon-box {
+      background: var(--icon-active-bg) !important;
+    }
+    .active-link svg {
+      stroke: #1d4ed8 !important;
+    }
+
+    /* Icon box hover */
+    .nav-item:hover .icon-box {
+      background: var(--icon-hover-bg);
+    }
+    .nav-item:hover svg {
+      stroke: #1d4ed8;
+    }
+
+    /* Icon box */
+    .icon-box {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: 0.18s ease;
+    }
+
+    .btn-red {
+      background: #ef4444;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-red:hover { background: #dc2626; }
+  </style>
+
+  <link href="../../css/dashboard.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body style="background: var(--page-bg);" class="text-gray-800">
 
 <div class="flex min-h-screen">
 
-  <!-- SIDEBAR (DESKTOP) -->
-  <aside class="w-64 bg-white border-r hidden md:block">
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="w-64 h-screen fixed hidden md:flex flex-col justify-between border-r" style="background: var(--sidebar-bg);">
+    
     <div class="px-6 py-6">
 
-      <!-- LOGO -->
+      <!-- Logo -->
       <a href="/" class="flex flex-col items-center mb-8">
-        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3" alt="Institute Logo">
-        <h1 class="text-xl font-bold">Student Panel</h1>
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3" />
+        <h1 class="text-xl font-bold" style="color: var(--navy);">Student Panel</h1>
       </a>
 
+      <!-- Sidebar Items -->
       <nav class="space-y-1">
-        <a href="dashboard.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Dashboard</a>
-        <a href="leave.html" class="block px-4 py-2 rounded hover:bg-gray-100">Leave Request</a>
-        <a href="rooms.html" class="block px-4 py-2 rounded hover:bg-gray-100">Rooms</a>
-        <a href="complaints.html" class="block px-4 py-2 rounded hover:bg-gray-100">Complaints</a>
-        <a href="profile.html" class="block px-4 py-2 rounded hover:bg-gray-100">Profile</a>
+
+        <!-- Dashboard (ACTIVE) -->
+        <a href="dashboard.html" class="nav-item active-link flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#1d4ed8]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Dashboard</span>
+        </a>
+
+        <!-- Leave -->
+        <a href="leave.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Leave Request</span>
+        </a>
+
+        <!-- Rooms -->
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Rooms</span>
+        </a>
+
+        <!-- Complaints -->
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Complaints</span>
+        </a>
+
+        <!-- Profile -->
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Profile</span>
+        </a>
+
       </nav>
 
     </div>
+
+    <div class="px-6 py-4 border-t">
+      <button class="btn-red w-full">Logout</button>
+    </div>
+
   </aside>
 
-  <!-- MOBILE SIDEBAR BUTTON -->
-  <button id="menuToggle"
-    class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">
+  <!-- MOBILE SIDEBAR -->
+  <aside
+    id="mobileMenu"
+    class="fixed inset-y-0 left-0 w-64 p-6 pt-16 bg-white border-r shadow-lg transform -translate-x-full 
+           transition-all duration-300 md:hidden z-40 flex flex-col justify-between"
+  >
+
+    <div>
+      <a href="/" class="flex flex-col items-center mb-8">
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3" />
+        <h1 class="text-xl font-bold" style="color: var(--navy)">Student Panel</h1>
+      </a>
+
+      <nav class="space-y-1">
+
+        <!-- Dashboard (ACTIVE) -->
+        <a href="dashboard.html" class="nav-item active-link flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#1d4ed8]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Dashboard</span>
+        </a>
+
+        <!-- Leave -->
+        <a href="leave.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Leave Request</span>
+        </a>
+
+        <!-- Rooms -->
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Rooms</span>
+        </a>
+
+        <!-- Complaints -->
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Complaints</span>
+        </a>
+
+        <!-- Profile -->
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          <span class="text-base font-medium">Profile</span>
+        </a>
+
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t">
+      <button onclick="location.href='logout.html'" class="btn-red w-full">Logout</button>
+    </div>
+
+  </aside>
+
+  <!-- MOBILE MENU BUTTON -->
+  <button id="menuToggle" class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">
     ☰
   </button>
 
-  <!-- MOBILE SIDEBAR -->
-  <aside id="mobileMenu"
-    class="fixed inset-y-0 left-0 w-64 bg-white border-r p-6 pt-16 shadow transform -translate-x-full 
-           transition-all duration-300 md:hidden z-40">
-
-    <a href="/" class="flex flex-col items-center mb-8">
-      <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
-      <h1 class="text-xl font-bold">Student Panel</h1>
-    </a>
-
-    <nav class="space-y-1">
-      <a href="dashboard.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Dashboard</a>
-      <a href="leave.html" class="block px-4 py-2 rounded">Leave Request</a>
-      <a href="rooms.html" class="block px-4 py-2 rounded">Rooms</a>
-      <a href="complaints.html" class="block px-4 py-2 rounded">Complaints</a>
-      <a href="profile.html" class="block px-4 py-2 rounded">Profile</a>
-    </nav>
-
-  </aside>
-
-  <!-- MAIN AREA -->
-  <div class="flex-1 flex flex-col">
+  <!-- PAGE CONTENT (Original Content) -->
+  <div class="flex-1 flex flex-col md:ml-64">
 
     <!-- TOPBAR -->
-    <header 
-      class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between">
+    <header class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between" style="backdrop-filter: blur(6px);">
+      <h2 class="text-xl font-semibold absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:ml-14" style="color: var(--navy);">Dashboard</h2>
 
-      <!-- Center title (mobile) -->
-      <h2 class="text-xl font-semibold absolute left-1/2 transform -translate-x-1/2
-                 md:static md:transform-none md:ml-11">
-        Dashboard
-      </h2>
-
-      <!-- USER INFO -->
       <div class="flex items-center gap-3 ml-auto">
-        <span class="font-medium">Yogesh</span>
+        <span class="font-medium" style="color:var(--navy);">Yogesh</span>
         <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
       </div>
-
     </header>
 
-    <!-- CONTENT -->
-    <main class="p-6">
-      <div class="space-y-6">
+    <!-- ORIGINAL DASHBOARD CONTENT FROM YOUR FILE -->
+    <main class="p-6 space-y-8">
 
-        <!-- WELCOME CARD -->
-        <section class="bg-white shadow rounded-lg p-6">
-          <h1 class="text-2xl font-bold">Welcome back, Yogesh 👋</h1>
-          <p class="text-gray-600 mt-1">Here’s what’s happening today.</p>
-        </section>
+      <!-- WELCOME SECTION (unchanged) -->
+      <section
+        style="
+          background: linear-gradient(135deg, var(--blue), #22c55e);
+          border-radius: 20px;
+        "
+        class="p-6 text-white shadow">
+        <h2 class="text-2xl font-bold">Welcome back, Yogesh</h2>
+        <p class="mt-1 opacity-90">Here’s what’s happening in your hostel today.</p>
+      </section>
 
-        <!-- QUICK ACTIONS -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="leave.html" class="bg-white shadow rounded-lg p-4 hover:bg-gray-50">
-            <h2 class="font-semibold">Apply Leave</h2>
-          </a>
-          <a href="complaints.html" class="bg-white shadow rounded-lg p-4 hover:bg-gray-50">
-            <h2 class="font-semibold">File Complaint</h2>
-          </a>
-          <a href="rooms.html" class="bg-white shadow rounded-lg p-4 hover:bg-gray-50">
-            <h2 class="font-semibold">View Room</h2>
-          </a>
-          <a href="profile.html" class="bg-white shadow rounded-lg p-4 hover:bg-gray-50">
-            <h2 class="font-semibold">Edit Profile</h2>
-          </a>
-        </section>
+      <!-- OPTIONS SECTION (unchanged) -->
+      <section
+        class="p-6 rounded-xl shadow"
+        style="background: #eef6ff; border: 1px solid #d4e6ff;">
+        <h2 class="text-xl font-semibold mb-3" style="color: var(--navy);">Quick Actions</h2>
 
-        <!-- MESS MENU -->
-        <section class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-xl font-semibold mb-2">Mess Menu Today</h2>
-          <p>Breakfast: Poha & Chai</p>
-          <p>Lunch: Rice, Dal, Aloo Gobi</p>
-          <p>Dinner: Roti, Paneer Butter Masala</p>
-        </section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-      </div>
+          <a href="leave.html"
+            class="block p-4 rounded-xl shadow bg-white border border-gray-200 hover:shadow-md transition">
+            <h3 class="text-lg font-semibold mb-1" style="color: var(--navy);">Apply Leave</h3>
+            <p class="text-gray-600 text-sm">Request permission to go home.</p>
+          </a>
+
+          <a href="complaints.html"
+            class="block p-4 rounded-xl shadow bg-white border border-gray-200 hover:shadow-md transition">
+            <h3 class="text-lg font-semibold mb-1" style="color: var(--navy);">Register Complaint</h3>
+            <p class="text-gray-600 text-sm">Submit any issues to the warden.</p>
+          </a>
+
+          <a href="rooms.html"
+            class="block p-4 rounded-xl shadow bg-white border border-gray-200 hover:shadow-md transition">
+            <h3 class="text-lg font-semibold mb-1" style="color: var(--navy);">Check Room Info</h3>
+            <p class="text-gray-600 text-sm">View your current room details.</p>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- MESS MENU SECTION (unchanged) -->
+      <section class="p-6 rounded-xl shadow bg-white border border-gray-200">
+        <h2 class="text-xl font-semibold mb-3" style="color: var(--navy);">Mess Menu</h2>
+
+        <table class="w-full border-collapse">
+          <thead>
+            <tr style="background: #eef6ff; border-bottom: 1px solid #d8e0f0;">
+              <th class="p-3 text-left font-semibold text-gray-800">Timing</th>
+              <th class="p-3 text-left font-semibold text-gray-800">Menu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-3">Breakfast</td>
+              <td class="p-3">Poha + Tea</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3">Lunch</td>
+              <td class="p-3">Dal, Rice, Roti, Sabzi</td>
+            </tr>
+            <tr>
+              <td class="p-3">Dinner</td>
+              <td class="p-3">Paneer + Roti + Rice</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
     </main>
 
   </div>

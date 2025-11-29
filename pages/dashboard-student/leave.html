@@ -4,131 +4,399 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leave Request</title>
-  <link href="../../css/dashboard.css" rel="stylesheet">
-  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+  <style>
+    :root {
+      --navy: #001f3a;
+      --blue: #007bff;
+      --blue-hover: #005dc1;
+
+      --sidebar-bg: #f7faff;
+      --active-bg: #e2ecff;
+      --page-bg: #f4f7fc;
+
+      --icon-hover-bg: #f1f5ff;
+      --icon-active-bg: #e2ecff;
+
+      --green-section-bg: #d6ffe9;
+      --green-section-border: #a5f5cb;
+
+      --field-border: #d5dbe6;
+      --table-header-bg: #eef6ff;
+      --table-header-border: #d8e0f0;
+      --table-row-border: #e5e9f2;
+    }
+
+    .nav-item {
+      border-left: 3px solid transparent;
+      border-radius: 6px;
+      transition: 0.18s ease;
+      color: #2d2d2d;
+    }
+    .nav-item:hover {
+      background: #f0f6fb;
+    }
+
+    .active-link {
+      background: var(--active-bg) !important;
+      color: var(--blue) !important;
+      border-left: 3px solid var(--blue);
+      font-weight: 600;
+    }
+    .active-link .icon-box {
+      background: var(--icon-active-bg) !important;
+    }
+    .active-link svg {
+      stroke: #1d4ed8 !important;
+    }
+
+    .nav-item:hover .icon-box {
+      background: var(--icon-hover-bg);
+    }
+    .nav-item:hover svg {
+      stroke: #1d4ed8;
+    }
+
+    .icon-box {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: 0.18s ease;
+    }
+
+    /* SECTION + FORM STYLES FROM YOUR ORIGINAL THEME */
+    .green-section {
+      background: linear-gradient(135deg, var(--blue), #22c55e);
+      border: 1px solid var(--green-section-border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .form-card {
+      background: white;
+      border: 1px solid var(--field-border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--field-border);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 6px;
+      margin-bottom: 14px;
+      background: white;
+    }
+
+    textarea {
+      height: 110px;
+      resize: none;
+    }
+
+    .submit-btn {
+      background: var(--blue);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+    .submit-btn:hover {
+      background: var(--blue-hover);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    th {
+      background: var(--table-header-bg);
+      padding: 12px;
+      border-bottom: 1px solid var(--table-header-border);
+      text-align: left;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--table-row-border);
+    }
+    tr:hover td {
+      background: #f8fbff;
+    }
+
+    .btn-red {
+      background: #ef4444;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-red:hover { background: #dc2626; }
+  </style>
+
+  <link href="../../css/dashboard.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body style="background: var(--page-bg);" class="text-gray-800">
 
 <div class="flex min-h-screen">
 
-  <!-- SIDEBAR (DESKTOP) -->
-  <aside class="w-64 bg-white border-r hidden md:block">
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="w-64 h-screen fixed hidden md:flex flex-col justify-between border-r" style="background: var(--sidebar-bg)">
+
     <div class="px-6 py-6">
 
       <a href="/" class="flex flex-col items-center mb-8">
-        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3" alt="Institute Logo">
-        <h1 class="text-xl font-bold">Student Panel</h1>
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
+        <h1 class="text-xl font-bold" style="color: var(--navy);">Student Panel</h1>
       </a>
 
       <nav class="space-y-1">
-        <a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-100">Dashboard</a>
-        <a href="leave.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Leave Request</a>
-        <a href="rooms.html" class="block px-4 py-2 rounded hover:bg-gray-100">Rooms</a>
-        <a href="complaints.html" class="block px-4 py-2 rounded hover:bg-gray-100">Complaints</a>
-        <a href="profile.html" class="block px-4 py-2 rounded hover:bg-gray-100">Profile</a>
-      </nav>
 
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          Dashboard
+        </a>
+
+        <!-- Leave (ACTIVE) -->
+        <a href="leave.html" class="nav-item active-link flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="#1d4ed8" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          Leave Request
+        </a>
+
+        <!-- Rooms -->
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          Rooms
+        </a>
+
+        <!-- Complaints -->
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div>
+          Complaints
+        </a>
+
+        <!-- Profile -->
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-2">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          Profile
+        </a>
+
+      </nav>
+    </div>
+
+    <div class="px-6 py-4 border-t">
+      <button class="btn-red w-full">Logout</button>
     </div>
   </aside>
 
-  <!-- MOBILE BUTTON -->
-  <button id="menuToggle"
-    class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">
-    ☰
-  </button>
-
   <!-- MOBILE SIDEBAR -->
   <aside id="mobileMenu"
-    class="fixed inset-y-0 left-0 w-64 bg-white border-r p-6 pt-16 shadow transform -translate-x-full 
-           transition-all duration-300 md:hidden z-40">
+    class="fixed inset-y-0 left-0 w-64 p-6 pt-16 bg-white border-r shadow-lg transform -translate-x-full 
+           transition-all duration-300 md:hidden z-40 flex flex-col justify-between">
 
-    <a href="/" class="flex flex-col items-center mb-8">
-      <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
-      <h1 class="text-xl font-bold">Student Panel</h1>
-    </a>
+    <div>
+      <a href="/" class="flex flex-col items-center mb-8">
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
+        <h1 class="text-xl font-bold" style="color: var(--navy);">Student Panel</h1>
+      </a>
 
-    <nav class="space-y-1">
-      <a href="dashboard.html" class="block px-4 py-2 rounded">Dashboard</a>
-      <a href="leave.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Leave Request</a>
-      <a href="rooms.html" class="block px-4 py-2 rounded">Rooms</a>
-      <a href="complaints.html" class="block px-4 py-2 rounded">Complaints</a>
-      <a href="profile.html" class="block px-4 py-2 rounded">Profile</a>
-    </nav>
+      <nav class="space-y-1">
+
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          Dashboard
+        </a>
+
+        <!-- Leave (ACTIVE) -->
+        <a href="leave.html" class="nav-item active-link flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#1d4ed8]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          Leave Request
+        </a>
+
+        <!-- Rooms -->
+        <a href="rooms.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          Rooms
+        </a>
+
+        <!-- Complaints -->
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div>
+          Complaints
+        </a>
+
+        <!-- Profile -->
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-md">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2"
+              viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          Profile
+        </a>
+
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t">
+      <button class="btn-red w-full">Logout</button>
+    </div>
 
   </aside>
 
-  <!-- MAIN AREA -->
-  <div class="flex-1 flex flex-col">
+  <!-- MOBILE MENU BUTTON -->
+  <button id="menuToggle" class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">
+    ☰
+  </button>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-1 flex flex-col md:ml-64">
 
     <!-- TOPBAR -->
-    <header 
-      class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between">
+    <header class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between" style="backdrop-filter: blur(6px);">
 
-      <h2 class="text-xl font-semibold absolute left-1/2 transform -translate-x-1/2
-                 md:static md:transform-none md:ml-14">
-        Leave Request
-      </h2>
+      <h2 class="text-xl font-semibold absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:ml-14" style="color: var(--navy);">Leave Request</h2>
 
       <div class="flex items-center gap-3 ml-auto">
-        <span class="font-medium">Yogesh</span>
+        <span class="font-medium" style="color: var(--navy);">Yogesh</span>
         <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
       </div>
 
     </header>
 
     <!-- PAGE CONTENT -->
-    <main class="p-6">
-      <div class="space-y-8">
+    <main class="p-6 space-y-8">
 
-        <!-- APPLY FORM -->
-        <section class="bg-white shadow rounded-lg p-6 space-y-4">
-          <h2 class="text-xl font-semibold">Apply for Leave</h2>
+      <!-- LEAVE APPLY FORM -->
+      <section class="green-section">
+        <h2 class="text-xl font-bold text-white">Apply for Leave</h2>
+        <p class="text-white mt-1 mb-4">Fill in the details to request leave.</p>
+
+        <div class="form-card mt-4">
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="date" class="border p-2 rounded w-full" />
-            <input type="date" class="border p-2 rounded w-full" />
+            <div>
+              <label class="font-medium">From Date</label>
+              <input type="date">
+            </div>
+
+            <div>
+              <label class="font-medium">To Date</label>
+              <input type="date">
+            </div>
           </div>
 
-          <input type="text" placeholder="Destination" class="border p-2 rounded w-full">
+          <label class="font-medium">Destination</label>
+          <input type="text" placeholder="Enter destination">
 
-          <textarea placeholder="Reason" class="border p-2 rounded w-full h-28"></textarea>
+          <label class="font-medium">Reason</label>
+          <textarea placeholder="Explain your reason..."></textarea>
 
-          <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            Submit
-          </button>
-        </section>
+          <button class="submit-btn mt-2">Submit</button>
 
-        <!-- HISTORY -->
-        <section class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-xl font-semibold mb-4">Leave History</h2>
+        </div>
+      </section>
 
-          <table class="w-full border-collapse">
-            <thead>
-              <tr class="border-b">
-                <th class="py-2 text-left">Date</th>
-                <th class="text-left">Reason</th>
-                <th class="text-left">Status</th>
-              </tr>
-            </thead>
+      <!-- LEAVE HISTORY -->
+      <section style="background:white; border:1px solid var(--table-row-border); border-radius:14px;" class="p-6">
+        <h2 class="text-xl font-semibold mb-2" style="color: var(--navy);">Leave History</h2>
 
-            <tbody>
-              <tr class="border-b">
-                <td class="py-3">12 Nov</td>
-                <td>Festival</td>
-                <td class="text-yellow-700 font-semibold">Pending</td>
-              </tr>
-              <tr class="border-b">
-                <td class="py-3">02 Oct</td>
-                <td>Family Function</td>
-                <td class="text-green-700 font-semibold">Approved</td>
-              </tr>
-            </tbody>
-          </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-        </section>
+          <tbody>
+            <tr>
+              <td>12 Nov</td>
+              <td>Festival</td>
+              <td class="text-yellow-700 font-semibold">Pending</td>
+            </tr>
+            <tr>
+              <td>02 Oct</td>
+              <td>Family Function</td>
+              <td class="text-green-700 font-semibold">Approved</td>
+            </tr>
+          </tbody>
+        </table>
 
-      </div>
+      </section>
+
     </main>
 
   </div>
@@ -137,6 +405,7 @@
 <script>
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
+
   menuToggle.addEventListener("click", () => {
     mobileMenu.classList.toggle("-translate-x-full");
   });

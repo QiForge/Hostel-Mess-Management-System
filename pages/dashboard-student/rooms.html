@@ -1,113 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rooms</title>
-  <link href="../../css/dashboard.css" rel="stylesheet">
-  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+  <style>
+    :root {
+      --navy: #001f3a;
+      --blue: #007bff;        /* B2 Medium Blue */
+      --blue-hover: #005dc1;
+
+      --sidebar-bg: #f7faff;
+      --active-bg: #e2ecff;
+      --page-bg: #f4f7fc;
+
+      --icon-hover-bg: #f1f5ff;
+      --icon-active-bg: #e2ecff;
+
+      --green-room: #d9fce8;   /* Light green for rooms */
+      --green-border: #9ae6b4;
+
+      --blue-room: #dceaff;    /* Soft blue background for selected room */
+      --blue-border: #007bff;  /* Medium blue outline */
+    }
+
+    /* Sidebar link styles (unchanged) */
+    .nav-item {
+      border-left: 3px solid transparent;
+      border-radius: 6px;
+      transition: 0.18s ease;
+      color: #2d2d2d;
+      display: flex;
+      align-items: center;
+    }
+    .nav-item:hover { background: #f0f6fb; }
+
+    .nav-item .icon-box { width: 36px; height: 36px; display: flex; align-items:center; justify-content:center;
+      border-radius:10px; transition:0.18s ease; flex-shrink:0; }
+
+    /* Active link stays BLUE (sidebar left untouched) */
+    .active-link {
+      background: var(--active-bg) !important;
+      color: var(--blue) !important;
+      border-left: 3px solid var(--blue);
+      font-weight: 600;
+    }
+    .active-link .icon-box { background: var(--icon-active-bg) !important; }
+
+    /* Rooms styling */
+    .rooms-container {
+      background: #eaf3ff;  /* soft blue tint for container */
+      border: 1px solid #bed7ff;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 1px 4px rgba(3, 15, 34, 0.08);
+    }
+
+    .room-card {
+      background: var(--green-room);
+      border: 2px solid var(--green-border);
+      padding: 18px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      color: #0b4220;
+      transition: 0.18s ease;
+    }
+    .room-card:hover {
+      background: #c4f7dc;
+      border-color: #7edbb0;
+    }
+
+    /* SELECTED ROOM (Room No. 204) */
+    .room-selected {
+      background: var(--blue-room) !important;
+      border: 2px solid var(--blue-border) !important;
+      color: var(--navy) !important;
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.35);
+    }
+
+    .btn-red {
+      background: #ef4444;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-red:hover { background: #dc2626; }
+
+  </style>
+
+  <link href="../../css/dashboard.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body style="background: var(--page-bg);">
 
 <div class="flex min-h-screen">
 
-  <!-- SIDEBAR (same as dashboard) -->
-  <aside class="w-64 bg-white border-r hidden md:block">
-    <div class="px-6 py-6">
+  <!-- DESKTOP SIDEBAR (unchanged) -->
+  <aside class="w-64 h-screen fixed hidden md:flex flex-col justify-between border-r" style="background:var(--sidebar-bg);">
 
+    <div class="px-6 py-6">
       <a href="/" class="flex flex-col items-center mb-8">
         <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
-        <h1 class="text-xl font-bold">Student Panel</h1>
+        <h1 class="text-xl font-bold" style="color:var(--navy)">Student Panel</h1>
       </a>
 
       <nav class="space-y-1">
-        <a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-100">Dashboard</a>
-        <a href="leave.html" class="block px-4 py-2 rounded hover:bg-gray-100">Leave Request</a>
-        <a href="rooms.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Rooms</a>
-        <a href="complaints.html" class="block px-4 py-2 rounded hover:bg-gray-100">Complaints</a>
-        <a href="profile.html" class="block px-4 py-2 rounded hover:bg-gray-100">Profile</a>
-      </nav>
 
+        <a href="dashboard.html" class="nav-item px-4 py-2 gap-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" 
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div>
+          Dashboard
+        </a>
+
+        <a href="leave.html" class="nav-item px-4 py-2 gap-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div>
+          Leave Request
+        </a>
+
+        <a href="rooms.html" class="nav-item active-link px-4 py-2 gap-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#1d4ed8]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div>
+          Rooms
+        </a>
+
+        <a href="complaints.html" class="nav-item px-4 py-2 gap-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]"
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div>
+          Complaints
+        </a>
+
+        <a href="profile.html" class="nav-item px-4 py-2 gap-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[#4b5563]" 
+                 fill="none" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          Profile
+        </a>
+
+      </nav>
+    </div>
+
+    <div class="px-6 py-4 border-t">
+      <button class="btn-red w-full">Logout</button>
     </div>
   </aside>
 
-  <!-- MOBILE BUTTON & SIDEBAR (unchanged) -->
-  <button id="menuToggle" class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">☰</button>
-
+  <!-- MOBILE SIDEBAR (unchanged) -->
   <aside id="mobileMenu"
-    class="fixed inset-y-0 left-0 w-64 bg-white border-r p-6 pt-16 shadow transform -translate-x-full 
-           transition-all duration-300 md:hidden z-40">
+    class="fixed inset-y-0 left-0 w-64 p-6 pt-16 bg-white border-r shadow-lg transform -translate-x-full 
+           transition-all duration-300 md:hidden z-40 flex flex-col justify-between">
 
-    <a href="/" class="flex flex-col items-center mb-8">
-      <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
-      <h1 class="text-xl font-bold">Student Panel</h1>
-    </a>
+    <div>
+      <a href="/" class="flex flex-col items-center mb-8">
+        <img src="../../assets/logo.png" class="w-16 h-16 rounded-full mb-3">
+        <h1 class="text-xl font-bold" style="color:var(--navy)">Student Panel</h1>
+      </a>
 
-    <nav class="space-y-1">
-      <a href="dashboard.html" class="block px-4 py-2 rounded">Dashboard</a>
-      <a href="leave.html" class="block px-4 py-2 rounded">Leave Request</a>
-      <a href="rooms.html" class="block px-4 py-2 rounded bg-gray-100 font-semibold">Rooms</a>
-      <a href="complaints.html" class="block px-4 py-2 rounded">Complaints</a>
-      <a href="profile.html" class="block px-4 py-2 rounded">Profile</a>
-    </nav>
+      <nav class="space-y-1">
+        <a href="dashboard.html" class="nav-item flex items-center gap-3 px-4 py-3"> 
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg"  
+                 class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" 
+                 viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+            </svg>
+          </div> Dashboard
+        </a>
+
+        <a href="leave.html" class="nav-item flex items-center gap-3 px-4 py-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg"  
+                 class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" 
+                 viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="8" y1="3" x2="8" y2="7"></line>
+              <line x1="16" y1="3" x2="16" y2="7"></line>
+            </svg>
+          </div> Leave Request
+        </a>
+
+        <a href="rooms.html" class="nav-item active-link flex items-center gap-3 px-4 py-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg"  
+                 class="w-5 h-5 stroke-[#1d4ed8]" fill="none" stroke-width="2" 
+                 viewBox="0 0 24 24">
+              <path d="M3 21V9l9-6 9 6v12H3z"></path>
+              <rect x="9" y="13" width="6" height="8" rx="1"></rect>
+            </svg>
+          </div> Rooms
+        </a>
+
+        <a href="complaints.html" class="nav-item flex items-center gap-3 px-4 py-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg"  
+                 class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" 
+                 viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4l1.4 3.1a.8.8 0 0 1-1 .8l-3.3-1.1a8.5 8.5 0 1 1 4.8-8.2z"></path>
+            </svg>
+          </div> Complaints
+        </a>
+
+        <a href="profile.html" class="nav-item flex items-center gap-3 px-4 py-3">
+          <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg"  
+                 class="w-5 h-5 stroke-[#4b5563]" fill="none" stroke-width="2" 
+                 viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+            </svg>
+          </div> Profile
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t">
+      <button class="btn-red w-full">Logout</button>
+    </div>
 
   </aside>
 
-  <!-- MAIN AREA -->
-  <div class="flex-1 flex flex-col">
+  <!-- Mobile Menu Button -->
+  <button id="menuToggle" class="md:hidden fixed top-4 left-4 bg-white border p-2 shadow rounded z-50">☰</button>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-1 flex flex-col md:ml-64">
 
     <!-- TOPBAR -->
-    <header 
-      class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between">
-
+    <header class="w-full bg-white border-b p-4 sticky top-0 z-30 flex items-center justify-between"
+            style="backdrop-filter: blur(6px);">
       <h2 class="text-xl font-semibold absolute left-1/2 transform -translate-x-1/2
-                 md:static md:transform-none md:ml-6">
+                 md:static md:transform-none md:ml-10" style="color: var(--navy);">
         Rooms
       </h2>
 
       <div class="flex items-center gap-3 ml-auto">
-        <span class="font-medium">Yogesh</span>
+        <span class="font-medium" style="color:var(--navy);">Yogesh</span>
         <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
       </div>
-
     </header>
 
-    <!-- PAGE CONTENT -->
-    <main class="p-6">
-      <div class="space-y-8">
+    <!-- CONTENT -->
+    <main class="p-6 space-y-8">
 
-        <!-- ROOM INFO -->
-        <section class="bg-white rounded-lg shadow p-6">
-          <h2 class="text-xl font-semibold mb-3">Your Room</h2>
+      <!-- ROOMS MAP -->
+      <section class="rooms-container" style="background: linear-gradient(135deg, var(--blue), #22c55e)">
+        <h2 class="text-xl font-semibold mb-4 text-white">Room Selection</h2>
 
-          <p><strong>Room Number:</strong> 204</p>
-          <p><strong>Floor:</strong> 2nd Floor</p>
-          <p><strong>Type:</strong> Double Sharing</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-          <h3 class="font-semibold mt-4 mb-2">Roommates</h3>
-          <ul class="list-disc pl-6">
-            <li>Ratan Gupta</li>
-          </ul>
-        </section>
+          <div class="room-card">Room No. 201</div>
+          <div class="room-card">Room No. 202</div>
+          <div class="room-card">Room No. 203</div>
 
-        <!-- HOSTEL MAP -->
-        <section class="bg-white rounded-lg shadow p-6">
-          <h2 class="text-xl font-semibold mb-4">Hostel Layout</h2>
+          <!-- SELECTED ROOM (Room No. 204) -->
+          <div class="room-card room-selected">Room No. 204</div>
 
-          <div class="grid grid-cols-5 gap-2">
-            <div class="p-4 bg-gray-200 rounded text-center">201</div>
-            <div class="p-4 bg-gray-200 rounded text-center">202</div>
-            <div class="p-4 bg-gray-200 rounded text-center">203</div>
-            <div class="p-4 bg-blue-600 text-white rounded text-center">204</div>
-            <div class="p-4 bg-gray-200 rounded text-center">205</div>
-          </div>
-        </section>
+          <div class="room-card">Room No. 205</div>
+          <div class="room-card">Room No. 206</div>
+          <div class="room-card">Room No. 207</div>
+          <div class="room-card">Room No. 208</div>
 
-      </div>
+        </div>
+      </section>
+
+      <!-- INFO BOX -->
+      <section style="background:white; border:1px solid #ddd; border-radius:14px;" class="p-6">
+        <h2 class="text-xl font-semibold mb-4" style="color:var(--navy);">Your Room Details</h2>
+
+        <table class="w-full border-collapse">
+          <tbody>
+
+            <tr style="border-bottom:1px solid #e5e9f2;">
+              <td class="p-3 font-semibold text-gray-700 w-1/3">Room No.</td>
+              <td class="p-3 text-gray-800">204</td>
+            </tr>
+
+            <tr style="border-bottom:1px solid #e5e9f2;">
+              <td class="p-3 font-semibold text-gray-700">Block</td>
+              <td class="p-3 text-gray-800">B</td>
+            </tr>
+
+            <tr style="border-bottom:1px solid #e5e9f2;">
+              <td class="p-3 font-semibold text-gray-700">Floor</td>
+              <td class="p-3 text-gray-800">2</td>
+            </tr>
+
+            <tr>
+              <td class="p-3 font-semibold text-gray-700">Type</td>
+              <td class="p-3 text-gray-800">Triple Sharing</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p class="text-gray-600 mt-5">
+          For any room change requests, please contact the hostel warden.
+        </p>
+      </section>
+
+
+
     </main>
 
   </div>
+
 </div>
 
 <script>
